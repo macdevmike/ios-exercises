@@ -11,20 +11,30 @@
 @implementation StringCheese
 
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
-    /* WORK HERE */
-    return nil;
+    NSString *favoriteCheese = [NSString stringWithFormat:@"My favorite cheese is %@.", cheeseName];
+    return favoriteCheese;
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
-    /* WORK HERE */
-    return nil;
+    if (cheeseName == @"Gouda")
+    {
+        NSString *cheeseNameOnly = cheeseName;
+        return cheeseNameOnly;
+        
+    }
+    NSRange cheeseRange = [cheeseName rangeOfString:@" Cheese"];
+    NSString *cheeseNameOnly = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
+
+    return cheeseNameOnly;
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
     if (cheeseCount == 1) {
-        /* WORK HERE, ASSUMING THERE IS 1 CHEESE */
+        NSString *numberOfCheesesString = @"1 cheese";
+        return numberOfCheesesString;
     } else {
-        /* WORK HERE, ASSUMING THERE ARE 2+ CHEESES */
+        NSString *numberOfCheesesString = [NSString stringWithFormat:@"%ld cheeses", cheeseCount];
+        return numberOfCheesesString;
     }
     
     /*
