@@ -11,18 +11,18 @@
 @implementation EqualityDeterminer
 
 - (BOOL) string:(NSString *)string1 isTheSameAsString:(NSString *)string2 {
-    /* WORK HERE */
-    return (string1 == string2);
+    BOOL cerialEquality = [string1 isEqual: string2];
+    return cerialEquality;
 }
 
 - (BOOL) number:(NSNumber *)number1 isTheSameAsNumber:(NSNumber *)number2 {
-    /* WORK HERE */
-    return (number1 == number2);
+    BOOL numberEquality = [number1 isEqualToNumber:number2];
+    return numberEquality;
 }
 
 - (BOOL) integer:(NSInteger)integer1 isGreaterThan:(NSInteger)integer2 {
-    /* WORK HERE */
-    return NO;
+    BOOL hiIsGreater = (integer1 > integer2);
+    return hiIsGreater;
 }
 
 @end
