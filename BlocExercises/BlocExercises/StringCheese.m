@@ -16,16 +16,17 @@
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
-    if (cheeseName == @"Gouda")
-    {
-        NSString *cheeseNameOnly = cheeseName;
-        return cheeseNameOnly;
-        
-    }
+   
     NSRange cheeseRange = [cheeseName rangeOfString:@" Cheese"];
+    if (cheeseRange.location == NSNotFound)
+    {
+        return cheeseName;
+    }
+    else
+    {
     NSString *cheeseNameOnly = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
-
     return cheeseNameOnly;
+    }
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
