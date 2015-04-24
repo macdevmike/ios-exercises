@@ -17,16 +17,17 @@
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
    
-    NSRange cheeseRange = [cheeseName rangeOfString:@" Cheese"];
-    if (cheeseRange.location == NSNotFound)
-    {
-        return cheeseName;
-    }
-    else
-    {
-    NSString *cheeseNameOnly = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
-    return cheeseNameOnly;
-    }
+//    NSRange cheeseRange = [cheeseName rangeOfString:@" Cheese"];
+//    if (cheeseRange.location == NSNotFound)
+//    {
+//        return cheeseName;
+//    }
+//    else
+//    {
+//    NSString *cheeseNameOnly = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
+//    return cheeseNameOnly;
+//    }
+    return [cheeseName stringByReplacingOccurrencesOfString:@" Cheese" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, cheeseName.length)];
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
