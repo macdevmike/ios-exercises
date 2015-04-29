@@ -20,14 +20,18 @@
 }
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
-    NSPredicate *filter = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] 'favorite drink'"];
-    NSArray *drinkArray = [charactersArray filteredArrayUsingPredicate:filter];
+    NSArray *drinkArray = [charactersArray valueForKeyPath:@"favorite drink"];
     return drinkArray;
 }
 
 - (NSDictionary *)dictionaryWithQuoteAddedToStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
-    /* WORK HERE */
-    return @{};
+    NSMutableDictionary *updatedDict = [characterDictionary mutableCopy];
+    id newQuote = updatedDict[@"quote"];
+    if (newQuote == nil)
+    {
+        [updatedDict setObject:@"Too infinity and beyond!" forKey:@"quote"];
+    }
+    return updatedDict;
 }
 
 @end
