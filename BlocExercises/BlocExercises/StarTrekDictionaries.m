@@ -20,8 +20,9 @@
 }
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
-    /* WORK HERE */
-    return @[];
+    NSPredicate *filter = [NSPredicate predicateWithFormat:@"SELF CONTAINS[c] 'favorite drink'"];
+    NSArray *drinkArray = [charactersArray filteredArrayUsingPredicate:filter];
+    return drinkArray;
 }
 
 - (NSDictionary *)dictionaryWithQuoteAddedToStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
